@@ -59,7 +59,15 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+    function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
+function profileInfo(object) {
+  const name = capitalizeFirstLetter(object.name);
+  const species = capitalizeFirstLetter(object.species);
+  return `${name} is a ${species}`;
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -75,8 +83,13 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
+    if (object.noises && Array.isArray(object.noises) && object.noises.length > 0) {
+        return object.noises.join(' ');
+      } else {
+        return 'there are no noises';
+      }
+    }
 
-}
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
@@ -99,7 +112,15 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
+    let nonFriends = [];
 
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].name !== name && !friends.includes(array[i].name)) {
+        nonFriends.push(array[i].name);
+      }
+    }
+  
+    return nonFriends;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -107,7 +128,8 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+    object[key] = value;
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -115,15 +137,31 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+    return Object.keys(object).reduce((newObject, key) => {
+        if (!keys.includes(key)) {
+          newObject[key] = object[key];
+        }
+        return newObject;
+      }, {});
+    }
 
-}
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    const seen = {};
+    const result = [];
+  
+    for (let i = 0; i < array.length; i++) {
+      if (!seen[array[i]]) {
+        seen[array[i]] = true;
+        result.push(array[i]);
+      }
+    }
+    return result;
 }
 
 //////////////////////////////////////////////////////////////////////
