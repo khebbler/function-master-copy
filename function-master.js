@@ -2,6 +2,8 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+const { result } = require("lodash");
+
 function objectValues(object) {
     const values = [];
     for (let key in object) {
@@ -143,6 +145,7 @@ function isFriend(name, object) {
         // Checking if name is in friends array
         return object.friends.includes(name);
     } else {
+        // Returning false if not
         return false;
     }
 
@@ -153,7 +156,19 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    // Initializing notFriends array
+    var notFriends = [];
+    // Looping over array of people
+    for (var i = 0; i < array.length; i++) {
+        var person = array[i];
+        // Checking if person isn't name & not in friends
+        if (person.name !== name && (!person.friends || !person.friends.includes(name))) {
+            // Pushing person to notFriends array
+            notFriends.push(person.name);
+        }
+    }
+    // Returning notFriends
+    return notFriends;
 }
 
 //////////////////////////////////////////////////////////////////////
