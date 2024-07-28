@@ -87,7 +87,10 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-    return object.name + ' is a ' + object.species;
+    const name = object.name.charAt(0).toUpperCase() + object.name.slice(1).toLowerCase();
+  const species = object.species.charAt(0).toUpperCase() + object.species.slice(1).toLowerCase();
+  
+  return name + ' is a ' + species;
 }
 
 //////////////////////////////////////////////////////////////////////
