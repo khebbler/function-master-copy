@@ -124,7 +124,13 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    // Checking for friends property
+    if (!Array.isArray(object.friends)) {
+        object.friends = [];
+    }   // Adding name to friends 
+        object.friends.push(name);
+        // Returning object
+        return object;
 }
 
 //////////////////////////////////////////////////////////////////////
