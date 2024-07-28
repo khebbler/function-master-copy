@@ -103,6 +103,7 @@ function maybeNoises(object) {
         // Returning noises seperated by a space
         return object.noises.join(' ');
     } else {
+        // Returning no noises if no noises
         return 'there are no noises';
     }
 }
@@ -112,7 +113,10 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    // Splitting string into an array
+    var wordArray = string.split(' ');
+    // Checking if word is in array
+    return wordArray.includes(word);
 }
 
 //////////////////////////////////////////////////////////////////////
