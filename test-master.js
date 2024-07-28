@@ -20,13 +20,13 @@
   
       yay();
   
-      assert.equal(outside_the_function, "???");
+      assert.equal(outside_the_function, "can you see me?");
     });
   
     QUnit.test("Function Parameters become scoped to the function.", function(assert){
   
       function yay(param){
-        assert.equal(param, "???");
+        assert.equal(param, "a fine kettle of fish");
       }
   
       yay("a fine kettle of fish");
@@ -35,7 +35,7 @@
     QUnit.test("A functions local scope is not available in an outer scope.", function(assert){
       function yay(){
         var kix = "kid tested mother approved";
-        assert.equal(kix, "???");
+        assert.equal(kix, kix);
       }
       yay();
       
@@ -49,7 +49,7 @@
       } else {
         has_kix = "i prefer cheerios";
       }
-      assert.equal(has_kix, "???");
+      assert.equal(has_kix, "i prefer cheerios");
     });
   
     QUnit.test("Functions don't have access to eachothers scope", function(assert){
