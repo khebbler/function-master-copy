@@ -138,6 +138,13 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
+    // Checking for friends property
+    if (Array.isArray(object.friends)) {
+        // Checking if name is in friends array
+        return object.friends.includes(name);
+    } else {
+        return false;
+    }
 
 }
 
