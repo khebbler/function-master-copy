@@ -188,6 +188,13 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+    // Looping over array
+    for (var i = 0; i < array.length; i++) {
+        // Removing properties on object that are listed in array
+        delete object[array[i]];
+    }
+    // Returning object
+    return object;
 
 }
 
