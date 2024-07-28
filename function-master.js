@@ -203,7 +203,18 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+// Initializing removedDuplicateArray
+var removedDupilicateArray = [];
+// Looping over input array
+for (var i = 0; i < array.length; i++) {
+    // Checking if element is in removedDuplicateArray
+    if (removedDupilicateArray.indexOf(array[i]) === -1) {
+        // Adding to removedDuplicateArray
+        removedDupilicateArray.push(array[i]);
+    }
+}
+// Returning removedDuplicateArray
+return removedDupilicateArray;
 }
 
 //////////////////////////////////////////////////////////////////////
