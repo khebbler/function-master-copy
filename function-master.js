@@ -98,7 +98,13 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    // Checking if object has a noises array & isn't empty
+    if (object.noises && Array.isArray(object.noises) && object.noises.length > 0) {
+        // Returning noises seperated by a space
+        return object.noises.join(' ');
+    } else {
+        return 'there are no noises';
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
