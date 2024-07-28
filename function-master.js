@@ -176,6 +176,10 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
+    // Updating key to equal value
+    object[key] = value;
+    // Returning object
+    return object;
 
 }
 
